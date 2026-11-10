@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đỗ Thị Mỹ Duyên | Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio của Đỗ Thị Mỹ Duyên - E-commerce Specialist & Tourism Professional."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#f3f8ff',
+                100: '#eaf1ff',
+                200: '#d7e7ff',
+                300: '#bfd7ff',
+                400: '#8db8ff',
+                500: '#5d8ef7',
+                600: '#376ae8',
+                700: '#2a52c5',
+                800: '#2443a0',
+                900: '#1d366f'
+              },
+              slate: {
+                950: '#0f172a'
+              }
+            },
+            boxShadow: {
+              soft: '0 20px 50px rgba(37, 99, 235, 0.12)',
+              card: '0 10px 30px rgba(15, 23, 42, 0.08)'
+            }
+          }
+        }
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+      }
+
+      ::selection {
+        background: rgba(59, 130, 246, 0.2);
+      }
+
+      #mobileMenu.show {
+        display: block;
+      }
+
+      .scene {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 10;
+      }
+
+      .bubble {
+        position: absolute;
+        left: 0;
+        bottom: -25vh;
+        width: var(--size);
+        height: var(--size);
+        pointer-events: auto;
+        cursor: pointer;
+        opacity: 0;
+        animation: rise var(--dur) linear forwards;
+        filter: drop-shadow(0 14px 18px rgba(17, 47, 91, 0.26));
+      }
+
+      .bubble .inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        place-items: center;
+        border-radius: 32%;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -18px 16px rgba(255,255,255,0.04), 0 12px 24px rgba(15, 28, 56, 0.18);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .bubble:hover .inner {
+        transform: scale(1.08);
+      }
+
+      .shape {
+        width: 72%;
+        height: 72%;
+        display: block;
+        opacity: 0.95;
+        background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1));
+        border: 1px solid rgba(255,255,255,0.18);
+      }
+
+      .shape.circle {
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(255,255,255,0.37), rgba(182,224,255,0.15));
+      }
+
+      .shape.heart {
+        clip-path: polygon(50% 100%, 15% 72%, 0 42%, 0 18%, 18% 0, 50% 24%, 82% 0, 100% 18%, 100% 42%, 85% 72%);
+        background: linear-gradient(135deg, rgba(255, 151, 196, 0.75), rgba(255,255,255,0.18));
+      }
+
+      .shape.star {
+        clip-path: polygon(50% 0%, 61% 35%, 100% 35%, 69% 58%, 80% 100%, 50% 72%, 20% 100%, 31% 58%, 0% 35%, 39% 35%);
+        background: linear-gradient(135deg, rgba(255,209,102,0.75), rgba(255,255,255,0.18));
+      }
+
+      .shape.hex {
+        clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0 50%);
+        background: linear-gradient(135deg, rgba(142, 245, 210, 0.75), rgba(255,255,255,0.18));
+      }
+
+      .bubble.bursting {
+        animation: vanish 0.35s ease forwards;
+        pointer-events: none;
+      }
+
+      .burst {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 0;
+        height: 0;
+        pointer-events: none;
+        z-index: 20;
+      }
+
+      .burst .emoji {
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: clamp(1.2rem, 2vw, 2.2rem);
+        filter: drop-shadow(0 10px 12px rgba(0,0,0,0.18));
+        opacity: 0;
+        animation: pop 0.9s ease forwards;
+      }
+
+      @keyframes rise {
+        0% {
+          opacity: 0;
+          transform: translate3d(var(--drift), 0, 0) scale(0.65);
+        }
+        10% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          transform: translate3d(var(--drift), -118vh, 0) scale(1.18);
+        }
+      }
+
+      @keyframes pop {
+        0% {
+          opacity: 0;
+          transform: translate(0, 0) scale(0.2) rotate(0deg);
+        }
+        18% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          transform: translate(var(--tx), var(--ty)) scale(1.35) rotate(var(--rot));
+        }
+      }
+
+      @keyframes vanish {
+        to {
+          opacity: 0;
+          transform: scale(0.3);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50 text-slate-800 antialiased">
+    <div class="scene" id="bubbleScene"></div>
+
+    <button id="musicToggle" aria-label="Toggle background music" class="fixed bottom-5 right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-full border border-white/30 bg-slate-900/70 text-xl text-white shadow-2xl backdrop-blur-md transition hover:scale-105 hover:bg-slate-800/80">
+      🔊
+    </button>
+
+    <audio id="bgMusic" loop preload="auto">
+      <source src="music.mp3" type="audio/mpeg" />
+      <source src="my-music.mp3" type="audio/mpeg" />
+    </audio>
+
+    <header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/80 backdrop-blur-md">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <a href="#home" class="flex items-center gap-3">
+          <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-600 text-lg font-extrabold text-white shadow-soft">
+            D
+          </div>
+          <div>
+            <p class="text-xs uppercase tracking-[0.32em] text-slate-500">Portfolio</p>
+            <h1 class="text-base font-bold text-slate-900">Mỹ Duyên</h1>
+          </div>
+        </a>
+
+        <div class="hidden items-center gap-8 md:flex">
+          <a href="#home" class="text-sm font-medium text-slate-700 transition hover:text-brand-700">Home</a>
+          <a href="#experience" class="text-sm font-medium text-slate-700 transition hover:text-brand-700">Kinh nghiệm</a>
+          <a href="#education" class="text-sm font-medium text-slate-700 transition hover:text-brand-700">Học vấn</a>
+          <a href="#skills" class="text-sm font-medium text-slate-700 transition hover:text-brand-700">Kỹ năng</a>
+          <a href="#contact" class="text-sm font-medium text-slate-700 transition hover:text-brand-700">Liên hệ</a>
+        </div>
+
+        <a href="#contact" class="hidden rounded-full bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-soft transition hover:bg-brand-700 md:inline-flex">
+          Liên hệ ngay
+        </a>
+
+        <button id="menuToggle" class="inline-flex rounded-lg border border-slate-200 p-2 text-slate-700 md:hidden" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+      </nav>
+
+      <div id="mobileMenu" class="hidden border-t border-slate-200 bg-white md:hidden">
+        <div class="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-4">
+          <a href="#home" class="text-sm font-medium text-slate-700">Home</a>
+          <a href="#experience" class="text-sm font-medium text-slate-700">Kinh nghiệm</a>
+          <a href="#education" class="text-sm font-medium text-slate-700">Học vấn</a>
+          <a href="#skills" class="text-sm font-medium text-slate-700">Kỹ năng</a>
+          <a href="#contact" class="text-sm font-medium text-slate-700">Liên hệ</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="relative overflow-hidden">
+        <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.22),_transparent_35%),radial-gradient(circle_at_bottom_right,_rgba(148,163,184,0.18),_transparent_30%)]"></div>
+        <div class="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:px-8 lg:py-28">
+          <div class="flex flex-col justify-center">
+            <div class="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-4 py-2 text-sm font-medium text-brand-700">
+              <span class="h-2.5 w-2.5 rounded-full bg-brand-500"></span>
+              Available for opportunities
+            </div>
+
+            <h2 class="mb-4 text-4xl font-black tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+              ĐỖ THỊ MỸ DUYÊN
+            </h2>
+            <p class="mb-8 max-w-xl text-xl font-medium text-brand-700 sm:text-2xl">
+              E-commerce Specialist & Tourism Professional
+            </p>
+
+            <div class="mb-8 flex flex-wrap gap-4 text-sm text-slate-600 sm:text-base">
+              <div class="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 shadow-card">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-brand-600" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v5a1 1 0 001 1h3a1 1 0 100-2h-2V6z" clip-rule="evenodd" />
+                </svg>
+                Sinh năm: 15-08-1999
+              </div>
+            </div>
+
+            <p class="max-w-2xl text-lg leading-8 text-slate-600">
+              Mong muốn được phát triển trong một môi trường chuyên nghiệp, nơi tôi có thể tận dụng kỹ năng, kiến thức và tinh thần học hỏi để đóng góp vào sự phát triển bền vững của doanh nghiệp.
+            </p>
+
+            <div class="mt-10 flex flex-wrap gap-4">
+              <a href="#experience" class="inline-flex items-center justify-center rounded-full bg-brand-600 px-6 py-3.5 text-base font-semibold text-white shadow-soft transition hover:bg-brand-700">
+                Xem kinh nghiệm
+              </a>
+              <a href="#contact" class="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-6 py-3.5 text-base font-semibold text-slate-700 transition hover:border-brand-200 hover:text-brand-700">
+                Liên hệ
+              </a>
+            </div>
+          </div>
+
+          <div class="relative flex items-center justify-center">
+            <div class="absolute inset-8 rounded-full bg-brand-100 blur-3xl"></div>
+            <div class="relative w-full max-w-md rounded-[2rem] border border-white/60 bg-white/80 p-6 shadow-soft backdrop-blur-sm">
+              <div class="rounded-[1.5rem] bg-gradient-to-br from-brand-600 via-brand-500 to-brand-400 p-6 text-white">
+                <div class="flex items-center justify-between">
+                  <span class="rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em]">Profile</span>
+                  <span class="text-sm font-medium">Specialist</span>
+                </div>
+
+                <div class="mt-6 flex items-center gap-4">
+                  <div class="flex h-20 w-20 items-center justify-center rounded-2xl bg-white/15 text-2xl font-black shadow-lg backdrop-blur-sm">
+                    MD
+                  </div>
+                  <div>
+                    <p class="text-2xl font-bold">Đỗ Thị Mỹ Duyên</p>
+                    <p class="mt-1 text-sm text-brand-100">E-commerce & Tourism</p>
+                  </div>
+                </div>
+
+                <div class="mt-8 grid grid-cols-2 gap-4">
+                  <div class="rounded-2xl bg-white/10 p-4">
+                    <p class="text-xs uppercase tracking-[0.2em] text-brand-100">Experience</p>
+                    <p class="mt-2 text-2xl font-bold">4+</p>
+                    <p class="text-sm text-brand-100">Years</p>
+                  </div>
+                  <div class="rounded-2xl bg-white/10 p-4">
+                    <p class="text-xs uppercase tracking-[0.2em] text-brand-100">Focus</p>
+                    <p class="mt-2 text-2xl font-bold">SEO</p>
+                    <p class="text-sm text-brand-100">Growth</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-5 grid gap-4 sm:grid-cols-2">
+                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <p class="text-xs uppercase tracking-[0.2em] text-slate-500">Skill</p>
+                  <p class="mt-2 font-semibold text-slate-900">Product Management</p>
+                </div>
+                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <p class="text-xs uppercase tracking-[0.2em] text-slate-500">Skill</p>
+                  <p class="mt-2 font-semibold text-slate-900">Customer Care</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div class="mb-14 text-center">
+          <p class="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-brand-700">Kinh nghiệm</p>
+          <h3 class="text-3xl font-black text-slate-900 sm:text-4xl">Lộ trình nghề nghiệp</h3>
+        </div>
+
+        <div class="relative">
+          <div class="absolute left-4 top-0 h-full w-px bg-gradient-to-b from-brand-300 via-brand-500 to-brand-200 md:left-1/2"></div>
+
+          <div class="space-y-10">
+            <article class="relative flex flex-col md:flex-row md:items-center">
+              <div class="mb-4 w-full md:w-1/2 md:pr-10 md:text-right">
+                <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
+                  <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">2022 - Đến nay</p>
+                  <h4 class="mt-3 text-2xl font-bold text-slate-900">CÔNG TY CỔ PHẦN TOBECO</h4>
+                  <ul class="mt-5 space-y-3 text-left text-slate-600">
+                    <li>• Quản lý và cập nhật nội dung sản phẩm trên website: mô tả, hình ảnh, giá bán và thông tin chi tiết.</li>
+                    <li>• Viết nội dung chuẩn SEO, tối ưu tiêu đề và từ khóa.</li>
+                    <li>• Chỉnh sửa và tối ưu hình ảnh sản phẩm bằng Photoshop.</li>
+                    <li>• Hỗ trợ quản lý thông tin sản phẩm: tồn kho, thuộc tính và cập nhật giá theo từng chương trình bán hàng.</li>
+                    <li>• Hỗ trợ chăm sóc khách hàng: tư vấn sản phẩm, xử lý đơn hàng, giải đáp thắc mắc trong quá trình đặt hàng – thanh toán – giao nhận.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border-4 border-slate-50 bg-brand-600 md:mx-auto md:ml-0 md:mr-0">
+                <span class="h-2 w-2 rounded-full bg-white"></span>
+              </div>
+              <div class="mt-4 w-full md:mt-0 md:w-1/2 md:pl-10"></div>
+            </article>
+
+            <article class="relative flex flex-col md:flex-row md:items-center">
+              <div class="mt-4 w-full md:mt-0 md:w-1/2 md:pr-10 md:text-right"></div>
+              <div class="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border-4 border-slate-50 bg-brand-600 md:mx-auto">
+                <span class="h-2 w-2 rounded-full bg-white"></span>
+              </div>
+              <div class="mt-4 w-full md:mt-0 md:w-1/2 md:pl-10">
+                <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
+                  <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">11/2020 - 2/2021</p>
+                  <h4 class="mt-3 text-2xl font-bold text-slate-900">TTS TẠI VIET CHALLENGE TOURS</h4>
+                  <ul class="mt-5 space-y-3 text-slate-600">
+                    <li>• Viết và đăng bài quảng cáo tour qua Facebook, Fanpage và website.</li>
+                    <li>• Giới thiệu, tư vấn và giải đáp thắc mắc của khách hàng qua điện thoại và email.</li>
+                    <li>• Sắp xếp lịch trình - hướng dẫn khách hàng đến các điểm tham quan - giải quyết các vấn đề liên quan.</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" class="bg-white py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="mb-14 text-center">
+            <p class="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-brand-700">Học vấn & chứng chỉ</p>
+            <h3 class="text-3xl font-black text-slate-900 sm:text-4xl">Bằng cấp & năng lực</h3>
+          </div>
+
+          <div class="grid gap-6 lg:grid-cols-2">
+            <div class="rounded-[2rem] border border-slate-200 bg-slate-50 p-8 shadow-card">
+              <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Học tập</p>
+              <div class="mt-6 space-y-5">
+                <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                  <p class="text-xl font-bold text-slate-900">ĐẠI HỌC KINH TẾ TPHCM (UEH)</p>
+                  <p class="mt-2 text-brand-700">2024 - Đến nay</p>
+                  <p class="mt-2 text-slate-600">Chuyên ngành Thương mại điện tử</p>
+                </div>
+                <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                  <p class="text-xl font-bold text-slate-900">TRƯỜNG ĐẠI HỌC ĐÀ LẠT</p>
+                  <p class="mt-2 text-brand-700">2017 - 2021</p>
+                  <p class="mt-2 text-slate-600">Chuyên ngành Tiếng Anh du lịch</p>
+                </div>
+              </div>
+            </div>
+
+            <div id="skills" class="rounded-[2rem] border border-slate-200 bg-slate-50 p-8 shadow-card">
+              <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Kỹ năng & Chứng chỉ</p>
+              <div class="mt-8 space-y-6">
+                <div>
+                  <div class="mb-2 flex items-center justify-between">
+                    <span class="font-medium text-slate-700">HSK 3 - Tiếng Trung</span>
+                    <span class="text-brand-700">80%</span>
+                  </div>
+                  <div class="h-2.5 rounded-full bg-slate-200">
+                    <div class="h-2.5 w-[80%] rounded-full bg-gradient-to-r from-brand-500 to-brand-700"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-2 flex items-center justify-between">
+                    <span class="font-medium text-slate-700">Photoshop</span>
+                    <span class="text-brand-700">75%</span>
+                  </div>
+                  <div class="h-2.5 rounded-full bg-slate-200">
+                    <div class="h-2.5 w-[75%] rounded-full bg-gradient-to-r from-brand-500 to-brand-700"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-2 flex items-center justify-between">
+                    <span class="font-medium text-slate-700">SEO & Content</span>
+                    <span class="text-brand-700">85%</span>
+                  </div>
+                  <div class="h-2.5 rounded-full bg-slate-200">
+                    <div class="h-2.5 w-[85%] rounded-full bg-gradient-to-r from-brand-500 to-brand-700"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-2 flex items-center justify-between">
+                    <span class="font-medium text-slate-700">Customer Service</span>
+                    <span class="text-brand-700">90%</span>
+                  </div>
+                  <div class="h-2.5 rounded-full bg-slate-200">
+                    <div class="h-2.5 w-[90%] rounded-full bg-gradient-to-r from-brand-500 to-brand-700"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div class="rounded-[2rem] bg-gradient-to-r from-brand-700 to-brand-900 p-8 text-white shadow-soft sm:p-10 lg:p-12">
+          <div class="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <p class="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-brand-100">Liên hệ</p>
+              <h3 class="text-3xl font-black sm:text-4xl">Sẵn sàng đóng góp cho doanh nghiệp của bạn</h3>
+            </div>
+            <div class="flex flex-wrap gap-4">
+              <a href="mailto:duyen@example.com" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3.5 text-base font-semibold text-brand-700 transition hover:bg-brand-50">
+                Email me
+              </a>
+              <a href="tel:+84901234567" class="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-6 py-3.5 text-base font-semibold text-white transition hover:bg-white/20">
+                Gọi ngay
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-slate-200 bg-white">
+      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-7 text-sm text-slate-600 sm:px-6 lg:flex-row lg:px-8">
+        <p>© 2026 Đỗ Thị Mỹ Duyên. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="#home" class="transition hover:text-brand-700">Home</a>
+          <a href="#experience" class="transition hover:text-brand-700">Kinh nghiệm</a>
+          <a href="#education" class="transition hover:text-brand-700">Học vấn</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', () => {
+          mobileMenu.classList.toggle('show');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', () => mobileMenu.classList.remove('show'));
+        });
+      }
+
+      const scene = document.getElementById('bubbleScene');
+      const shapes = ['circle', 'heart', 'star', 'hex'];
+      const emojis = ['❤️', '💖', '🌹', '🌸'];
+
+      function createBubble() {
+        const bubble = document.createElement('div');
+        const shape = shapes[Math.floor(Math.random() * shapes.length)];
+        const size = 38 + Math.random() * 52;
+        const duration = 7 + Math.random() * 7;
+        const drift = (Math.random() - 0.5) * 150;
+
+        bubble.className = 'bubble';
+        bubble.style.setProperty('--size', `${size}px`);
+        bubble.style.setProperty('--dur', `${duration}s`);
+        bubble.style.setProperty('--drift', `${drift}px`);
+        bubble.style.left = `${Math.random() * 90 + 5}%`;
+
+        bubble.innerHTML = `
+          <div class="inner">
+            <span class="shape ${shape}"></span>
+          </div>
+        `;
+
+        bubble.addEventListener('click', function (event) {
+          if (bubble.classList.contains('bursting')) return;
+          bubble.classList.add('bursting');
+          burstAt(event.clientX, event.clientY);
+          setTimeout(() => bubble.remove(), 350);
+        });
+
+        scene.appendChild(bubble);
+      }
+
+      function burstAt(x, y) {
+        const burst = document.createElement('div');
+        burst.className = 'burst';
+        burst.style.left = `${x}px`;
+        burst.style.top = `${y}px`;
+
+        for (let i = 0; i < 14; i++) {
+          const emoji = document.createElement('span');
+          emoji.className = 'emoji';
+          emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+          const angle = (Math.PI * 2 * i) / 14 + Math.random() * 0.7;
+          const distance = 24 + Math.random() * 80;
+          const tx = Math.cos(angle) * distance;
+          const ty = Math.sin(angle) * distance - 14;
+
+          emoji.style.setProperty('--tx', `${tx}px`);
+          emoji.style.setProperty('--ty', `${ty}px`);
+          emoji.style.setProperty('--rot', `${(Math.random() - 0.5) * 180}deg`);
+          burst.appendChild(emoji);
+        }
+
+        document.body.appendChild(burst);
+        setTimeout(() => burst.remove(), 900);
+      }
+
+      for (let i = 0; i < 24; i++) {
+        setTimeout(createBubble, i * 180);
+      }
+
+      setInterval(() => {
+        if (scene.children.length < 18) createBubble();
+      }, 1200);
+
+      const audio = document.getElementById('bgMusic');
+      const musicToggle = document.getElementById('musicToggle');
+      let musicStarted = false;
+
+      function toggleMusic() {
+        if (!audio) return;
+        if (audio.paused) {
+          audio.play().catch(() => {});
+          musicToggle.textContent = '🔇';
+        } else {
+          audio.pause();
+          musicToggle.textContent = '🔊';
+        }
+      }
+
+      if (musicToggle) {
+        musicToggle.addEventListener('click', toggleMusic);
+      }
+
+      window.addEventListener('click', () => {
+        if (!musicStarted && audio && audio.paused) {
+          musicStarted = true;
+          audio.play().catch(() => {});
+          if (musicToggle) musicToggle.textContent = '🔇';
+        }
+      }, { once: true });
+    </script>
+  </body>
+</html>
