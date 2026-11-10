@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ĐinhThị Mỹ Duyên | Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio của Đinh Thị Mỹ Duyên - E-commerce Specialist & Tourism Professional."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#f3f8ff',
+                100: '#eaf1ff',
+                200: '#d7e7ff',
+                300: '#bfd7ff',
+                400: '#8db8ff',
+                500: '#5d8ef7',
+                600: '#376ae8',
+                700: '#2a52c5',
+                800: '#2443a0',
+                900: '#1d366f'
+              },
+              slate: {
+                950: '#0f172a'
+              }
+            },
+            boxShadow: {
+              soft: '0 20px 50px rgba(37, 99, 235, 0.12)',
+              card: '0 10px 30px rgba(15, 23, 42, 0.08)'
+            }
+          }
+        }
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-slate-50 text-slate-800 antialiased">
+    <header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/80 backdrop-blur-md">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <a href="#home" class="flex items-center gap-3">
+          <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-600 text-lg font-extrabold text-white shadow-soft">
+            D
+          </div>
+          <div>
+            <p class="text-xs uppercase tracking-[0.32em] text-slate-500">Portfolio</p>
+            <h1 class="text-base font-bold text-slate-900">Mỹ Duyên</h1>
+          </div>
+        </a>
+
+        <div class="hidden items-center gap-8 md:flex">
+          <a href="#home" class="text-sm font-medium text-slate-700 transition hover:text-brand-700">Home</a>
+          <a href="#experience" class="text-sm font-medium text-slate-700 transition hover:text-brand-700">Kinh nghiệm</a>
+          <a href="#education" class="text-sm font-medium text-slate-700 transition hover:text-brand-700">Học vấn</a>
+          <a href="#skills" class="text-sm font-medium text-slate-700 transition hover:text-brand-700">Kỹ năng</a>
+          <a href="#contact" class="text-sm font-medium text-slate-700 transition hover:text-brand-700">Liên hệ</a>
+        </div>
+
+        <a href="#contact" class="hidden rounded-full bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-soft transition hover:bg-brand-700 md:inline-flex">
+          Liên hệ ngay
+        </a>
+
+        <button id="menuToggle" class="inline-flex rounded-lg border border-slate-200 p-2 text-slate-700 md:hidden" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+      </nav>
+
+      <div id="mobileMenu" class="hidden border-t border-slate-200 bg-white md:hidden">
+        <div class="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-4">
+          <a href="#home" class="text-sm font-medium text-slate-700">Home</a>
+          <a href="#experience" class="text-sm font-medium text-slate-700">Kinh nghiệm</a>
+          <a href="#education" class="text-sm font-medium text-slate-700">Học vấn</a>
+          <a href="#skills" class="text-sm font-medium text-slate-700">Kỹ năng</a>
+          <a href="#contact" class="text-sm font-medium text-slate-700">Liên hệ</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="relative overflow-hidden">
+        <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.22),_transparent_35%),radial-gradient(circle_at_bottom_right,_rgba(148,163,184,0.18),_transparent_30%)]"></div>
+        <div class="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:px-8 lg:py-28">
+          <div class="flex flex-col justify-center">
+            <div class="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-4 py-2 text-sm font-medium text-brand-700">
+              <span class="h-2.5 w-2.5 rounded-full bg-brand-500"></span>
+              Available for opportunities
+            </div>
+
+            <h2 class="mb-4 text-4xl font-black tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+              Đinh THỊ MỸ DUYÊN
+            </h2>
+            <p class="mb-8 max-w-xl text-xl font-medium text-brand-700 sm:text-2xl">
+              E-commerce Specialist & Tourism Professional
+            </p>
+
+            <div class="mb-8 flex flex-wrap gap-4 text-sm text-slate-600 sm:text-base">
+              <div class="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 shadow-card">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-brand-600" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v5a1 1 0 001 1h3a1 1 0 100-2h-2V6z" clip-rule="evenodd" />
+                </svg>
+                Sinh năm: 15-08-1999
+              </div>
+            </div>
+
+            <p class="max-w-2xl text-lg leading-8 text-slate-600">
+              Mong muốn được phát triển trong một môi trường chuyên nghiệp, nơi tôi có thể tận dụng kỹ năng, kiến thức và tinh thần học hỏi để đóng góp vào sự phát triển bền vững của doanh nghiệp.
+            </p>
+
+            <div class="mt-10 flex flex-wrap gap-4">
+              <a href="#experience" class="inline-flex items-center justify-center rounded-full bg-brand-600 px-6 py-3.5 text-base font-semibold text-white shadow-soft transition hover:bg-brand-700">
+                Xem kinh nghiệm
+              </a>
+              <a href="#contact" class="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-6 py-3.5 text-base font-semibold text-slate-700 transition hover:border-brand-200 hover:text-brand-700">
+                Liên hệ
+              </a>
+            </div>
+          </div>
+
+          <div class="relative flex items-center justify-center">
+            <div class="absolute inset-8 rounded-full bg-brand-100 blur-3xl"></div>
+            <div class="relative w-full max-w-md rounded-[2rem] border border-white/60 bg-white/80 p-6 shadow-soft backdrop-blur-sm">
+              <div class="rounded-[1.5rem] bg-gradient-to-br from-brand-600 via-brand-500 to-brand-400 p-6 text-white">
+                <div class="flex items-center justify-between">
+                  <span class="rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em]">Profile</span>
+                  <span class="text-sm font-medium">Specialist</span>
+                </div>
+
+                <div class="mt-6 flex items-center gap-4">
+                  <div class="flex h-20 w-20 items-center justify-center rounded-2xl bg-white/15 text-2xl font-black shadow-lg backdrop-blur-sm">
+                    MD
+                  </div>
+                  <div>
+                    <p class="text-2xl font-bold">Đỗ Thị Mỹ Duyên</p>
+                    <p class="mt-1 text-sm text-brand-100">E-commerce & Tourism</p>
+                  </div>
+                </div>
+
+                <div class="mt-8 grid grid-cols-2 gap-4">
+                  <div class="rounded-2xl bg-white/10 p-4">
+                    <p class="text-xs uppercase tracking-[0.2em] text-brand-100">Experience</p>
+                    <p class="mt-2 text-2xl font-bold">4+</p>
+                    <p class="text-sm text-brand-100">Years</p>
+                  </div>
+                  <div class="rounded-2xl bg-white/10 p-4">
+                    <p class="text-xs uppercase tracking-[0.2em] text-brand-100">Focus</p>
+                    <p class="mt-2 text-2xl font-bold">SEO</p>
+                    <p class="text-sm text-brand-100">Growth</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-5 grid gap-4 sm:grid-cols-2">
+                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <p class="text-xs uppercase tracking-[0.2em] text-slate-500">Skill</p>
+                  <p class="mt-2 font-semibold text-slate-900">Product Management</p>
+                </div>
+                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <p class="text-xs uppercase tracking-[0.2em] text-slate-500">Skill</p>
+                  <p class="mt-2 font-semibold text-slate-900">Customer Care</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div class="mb-14 text-center">
+          <p class="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-brand-700">Kinh nghiệm</p>
+          <h3 class="text-3xl font-black text-slate-900 sm:text-4xl">Lộ trình nghề nghiệp</h3>
+        </div>
+
+        <div class="relative">
+          <div class="absolute left-4 top-0 h-full w-px bg-gradient-to-b from-brand-300 via-brand-500 to-brand-200 md:left-1/2"></div>
+
+          <div class="space-y-10">
+            <article class="relative flex flex-col md:flex-row md:items-center">
+              <div class="mb-4 w-full md:w-1/2 md:pr-10 md:text-right">
+                <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
+                  <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">2022 - Đến nay</p>
+                  <h4 class="mt-3 text-2xl font-bold text-slate-900">CÔNG TY CỔ PHẦN TOBECO</h4>
+                  <ul class="mt-5 space-y-3 text-left text-slate-600">
+                    <li>• Quản lý và cập nhật nội dung sản phẩm trên website: mô tả, hình ảnh, giá bán và thông tin chi tiết.</li>
+                    <li>• Viết nội dung chuẩn SEO, tối ưu tiêu đề và từ khóa.</li>
+                    <li>• Chỉnh sửa và tối ưu hình ảnh sản phẩm bằng Photoshop.</li>
+                    <li>• Hỗ trợ quản lý thông tin sản phẩm: tồn kho, thuộc tính và cập nhật giá theo từng chương trình bán hàng.</li>
+                    <li>• Hỗ trợ chăm sóc khách hàng: tư vấn sản phẩm, xử lý đơn hàng, giải đáp thắc mắc trong quá trình đặt hàng – thanh toán – giao nhận.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border-4 border-slate-50 bg-brand-600 md:mx-auto md:ml-0 md:mr-0">
+                <span class="h-2 w-2 rounded-full bg-white"></span>
+              </div>
+              <div class="mt-4 w-full md:mt-0 md:w-1/2 md:pl-10"></div>
+            </article>
+
+            <article class="relative flex flex-col md:flex-row md:items-center">
+              <div class="mt-4 w-full md:mt-0 md:w-1/2 md:pr-10 md:text-right"></div>
+              <div class="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border-4 border-slate-50 bg-brand-600 md:mx-auto">
+                <span class="h-2 w-2 rounded-full bg-white"></span>
+              </div>
+              <div class="mt-4 w-full md:mt-0 md:w-1/2 md:pl-10">
+                <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
+                  <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">11/2020 - 2/2021</p>
+                  <h4 class="mt-3 text-2xl font-bold text-slate-900">TTS TẠI VIET CHALLENGE TOURS</h4>
+                  <ul class="mt-5 space-y-3 text-slate-600">
+                    <li>• Viết và đăng bài quảng cáo tour qua Facebook, Fanpage và website.</li>
+                    <li>• Giới thiệu, tư vấn và giải đáp thắc mắc của khách hàng qua điện thoại và email.</li>
+                    <li>• Sắp xếp lịch trình - hư���ng dẫn khách hàng đến các điểm tham quan - giải quyết các vấn đề liên quan.</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" class="bg-white py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="mb-14 text-center">
+            <p class="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-brand-700">Học vấn & chứng chỉ</p>
+            <h3 class="text-3xl font-black text-slate-900 sm:text-4xl">Bằng cấp & năng lực</h3>
+          </div>
+
+          <div class="grid gap-6 lg:grid-cols-2">
+            <div class="rounded-[2rem] border border-slate-200 bg-slate-50 p-8 shadow-card">
+              <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Học tập</p>
+              <div class="mt-6 space-y-5">
+                <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                  <p class="text-xl font-bold text-slate-900">ĐẠI HỌC KINH TẾ TPHCM (UEH)</p>
+                  <p class="mt-2 text-brand-700">2024 - Đến nay</p>
+                  <p class="mt-2 text-slate-600">Chuyên ngành Thương mại điện tử</p>
+                </div>
+                <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                  <p class="text-xl font-bold text-slate-900">TRƯỜNG ĐẠI HỌC ĐÀ LẠT</p>
+                  <p class="mt-2 text-brand-700">2017 - 2021</p>
+                  <p class="mt-2 text-slate-600">Chuyên ngành Tiếng Anh du lịch</p>
+                </div>
+              </div>
+            </div>
+
+            <div id="skills" class="rounded-[2rem] border border-slate-200 bg-slate-50 p-8 shadow-card">
+              <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Kỹ năng & Chứng chỉ</p>
+              <div class="mt-8 space-y-6">
+                <div>
+                  <div class="mb-2 flex items-center justify-between">
+                    <span class="font-medium text-slate-700">HSK 3 - Tiếng Trung</span>
+                    <span class="text-brand-700">80%</span>
+                  </div>
+                  <div class="h-2.5 rounded-full bg-slate-200">
+                    <div class="h-2.5 w-[80%] rounded-full bg-gradient-to-r from-brand-500 to-brand-700"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-2 flex items-center justify-between">
+                    <span class="font-medium text-slate-700">Photoshop</span>
+                    <span class="text-brand-700">75%</span>
+                  </div>
+                  <div class="h-2.5 rounded-full bg-slate-200">
+                    <div class="h-2.5 w-[75%] rounded-full bg-gradient-to-r from-brand-500 to-brand-700"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-2 flex items-center justify-between">
+                    <span class="font-medium text-slate-700">SEO & Content</span>
+                    <span class="text-brand-700">85%</span>
+                  </div>
+                  <div class="h-2.5 rounded-full bg-slate-200">
+                    <div class="h-2.5 w-[85%] rounded-full bg-gradient-to-r from-brand-500 to-brand-700"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-2 flex items-center justify-between">
+                    <span class="font-medium text-slate-700">Customer Service</span>
+                    <span class="text-brand-700">90%</span>
+                  </div>
+                  <div class="h-2.5 rounded-full bg-slate-200">
+                    <div class="h-2.5 w-[90%] rounded-full bg-gradient-to-r from-brand-500 to-brand-700"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div class="rounded-[2rem] bg-gradient-to-r from-brand-700 to-brand-900 p-8 text-white shadow-soft sm:p-10 lg:p-12">
+          <div class="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <p class="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-brand-100">Liên hệ</p>
+              <h3 class="text-3xl font-black sm:text-4xl">Sẵn sàng đóng góp cho doanh nghiệp của bạn</h3>
+            </div>
+            <div class="flex flex-wrap gap-4">
+              <a href="mailto:duyen@example.com" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3.5 text-base font-semibold text-brand-700 transition hover:bg-brand-50">
+                Email me
+              </a>
+              <a href="tel:+84901234567" class="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-6 py-3.5 text-base font-semibold text-white transition hover:bg-white/20">
+                Gọi ngay
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-slate-200 bg-white">
+      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-7 text-sm text-slate-600 sm:px-6 lg:flex-row lg:px-8">
+        <p>© 2026 Đỗ Thị Mỹ Duyên. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="#home" class="transition hover:text-brand-700">Home</a>
+          <a href="#experience" class="transition hover:text-brand-700">Kinh nghiệm</a>
+          <a href="#education" class="transition hover:text-brand-700">Học vấn</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
