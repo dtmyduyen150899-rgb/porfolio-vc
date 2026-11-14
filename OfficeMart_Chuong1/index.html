@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="OfficeMart - cửa hàng văn phòng phẩm trực tuyến">
+  <title>OfficeMart | Văn phòng phẩm</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="topline"><div class="container top-inner"><span>Văn phòng phẩm cho học tập và công việc</span><span>Hỗ trợ khách hàng: 1900 0000</span></div></div>
+    <div class="container header-main">
+      <a class="logo" href="#home" aria-label="OfficeMart trang chủ"><span class="logo-mark">O</span><span>Office<span>Mart</span></span></a>
+      <form class="search" id="searchForm" role="search"><label class="sr-only" for="searchInput">Tìm kiếm sản phẩm</label><input id="searchInput" type="search" placeholder="Tìm bút, sổ tay, giấy A4..."/><button type="submit">Tìm kiếm</button></form>
+      <button class="cart-button" id="cartButton" type="button" aria-label="Xem giỏ hàng">Giỏ hàng <span id="cartCount">0</span></button>
+    </div>
+    <nav class="main-nav"><div class="container nav-inner"><a href="#home">Trang chủ</a><a href="#categories">Danh mục</a><a href="#products">Sản phẩm</a><a href="#about">Giới thiệu</a></div></nav>
+  </header>
+  <main id="home">
+    <section class="hero container"><div class="hero-copy"><p class="eyebrow">OFFICEMART • SHOP VĂN PHÒNG PHẨM</p><h1>Chuẩn bị tốt hơn<br><span>cho mọi ý tưởng.</span></h1><p>Chọn nhanh những vật dụng học tập và làm việc cần thiết trong một không gian mua sắm rõ ràng, dễ sử dụng.</p><a class="primary-link" href="#products">Khám phá sản phẩm <span>→</span></a></div><div class="hero-art" aria-label="Minh họa dụng cụ văn phòng phẩm"><div class="paper paper-one"></div><div class="paper paper-two"></div><div class="pencil pencil-one"></div><div class="pencil pencil-two"></div><div class="note">IDEAS<br>START<br>HERE.</div><span class="spark spark-one">✦</span><span class="spark spark-two">✳</span></div></section>
+    <section class="container category-section" id="categories"><div class="section-heading"><div><p class="eyebrow">MUA SẮM THEO NHU CẦU</p><h2>Danh mục nổi bật</h2></div></div><div class="category-list"><a href="#products" data-category="Bút viết"><span>✎</span>Bút viết</a><a href="#products" data-category="Sổ & giấy"><span>▤</span>Sổ & giấy</a><a href="#products" data-category="Dụng cụ học tập"><span>✂</span>Dụng cụ học tập</a><a href="#products" data-category="Văn phòng"><span>▣</span>Văn phòng</a></div></section>
+    <section class="products-section" id="products"><div class="container"><div class="section-heading products-heading"><div><p class="eyebrow">LỰA CHỌN DÀNH CHO BẠN</p><h2>Sản phẩm văn phòng phẩm</h2><p class="section-subtitle">Thông tin và giá sản phẩm được trình bày rõ ràng để bạn dễ lựa chọn.</p></div><label class="sort-label" for="sortSelect">Sắp xếp <select id="sortSelect"><option value="default">Mặc định</option><option value="asc">Giá thấp đến cao</option><option value="desc">Giá cao đến thấp</option></select></label></div>
+      <div class="product-grid" id="productGrid">
+        <article class="product-card" data-name="Bút bi Thiên Long TL-027" data-category="Bút viết" data-price="5000"><div class="product-image image-blue"><span class="product-tag">Bán chạy</span><div class="pen-illustration"><i></i></div></div><div class="product-info"><p class="product-category">BÚT VIẾT</p><h3>Bút bi Thiên Long TL-027</h3><p class="product-desc">Nét mực xanh, phù hợp ghi chép hằng ngày.</p><div class="product-bottom"><strong>5.000đ</strong><button class="add-button" data-add="Bút bi Thiên Long TL-027" type="button">+ Thêm</button></div></div></article>
+        <article class="product-card" data-name="Giấy in A4 70gsm" data-category="Sổ & giấy" data-price="75000"><div class="product-image image-paper"><span class="product-tag tag-soft">Văn phòng</span><div class="paper-stack"><i></i><i></i><i></i></div></div><div class="product-info"><p class="product-category">SỔ & GIẤY</p><h3>Giấy in A4 70gsm</h3><p class="product-desc">Giấy trắng, dùng cho in ấn và photocopy.</p><div class="product-bottom"><strong>75.000đ</strong><button class="add-button" data-add="Giấy in A4 70gsm" type="button">+ Thêm</button></div></div></article>
+        <article class="product-card" data-name="Sổ tay lò xo Campus" data-category="Sổ & giấy" data-price="25000"><div class="product-image image-lilac"><span class="product-tag tag-soft">Được yêu thích</span><div class="notebook"><div class="rings">••••••••</div><div class="notebook-lines">NOTES<br><small>make it happen</small></div></div></div><div class="product-info"><p class="product-category">SỔ & GIẤY</p><h3>Sổ tay lò xo Campus</h3><p class="product-desc">Thiết kế gọn nhẹ, tiện ghi chú và lên kế hoạch.</p><div class="product-bottom"><strong>25.000đ</strong><button class="add-button" data-add="Sổ tay lò xo Campus" type="button">+ Thêm</button></div></div></article>
+        <article class="product-card" data-name="Bút highlight pastel" data-category="Dụng cụ học tập" data-price="18000"><div class="product-image image-yellow"><span class="product-tag">Mới</span><div class="highlighters"><i></i><i></i><i></i></div></div><div class="product-info"><p class="product-category">DỤNG CỤ HỌC TẬP</p><h3>Bút highlight pastel</h3><p class="product-desc">Bộ màu nhẹ nhàng, làm nổi bật nội dung quan trọng.</p><div class="product-bottom"><strong>18.000đ</strong><button class="add-button" data-add="Bút highlight pastel" type="button">+ Thêm</button></div></div></article>
+      </div><p class="empty-state" id="emptyState" hidden>Không tìm thấy sản phẩm phù hợp. Hãy thử từ khóa khác.</p></div></section>
+    <section class="benefits container"><div><span>✓</span><p><strong>Thông tin rõ ràng</strong><small>Dễ xem tên và giá sản phẩm</small></p></div><div><span>⌕</span><p><strong>Tìm kiếm thuận tiện</strong><small>Tìm theo tên sản phẩm</small></p></div><div><span>▦</span><p><strong>Bố cục linh hoạt</strong><small>Phù hợp máy tính và điện thoại</small></p></div></section>
+  </main>
+  <footer id="about"><div class="container footer-inner"><a class="logo footer-logo" href="#home"><span class="logo-mark">O</span><span>Office<span>Mart</span></span></a><p>OfficeMart – Gợi ý văn phòng phẩm cho học tập và công việc.</p><small>© 2026 OfficeMart. Giao diện học tập minh họa bằng HTML5 và CSS3.</small></div></footer><div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script>
+    const grid=document.getElementById('productGrid'),searchForm=document.getElementById('searchForm'),searchInput=document.getElementById('searchInput'),sortSelect=document.getElementById('sortSelect'),emptyState=document.getElementById('emptyState'),cartCount=document.getElementById('cartCount'),toast=document.getElementById('toast');let count=0;
+    [...grid.children].forEach((card,index)=>card.dataset.originalOrder=index);
+    function filterProducts(){const term=searchInput.value.trim().toLocaleLowerCase('vi');let visible=0;[...grid.children].forEach(card=>{const match=card.dataset.name.toLocaleLowerCase('vi').includes(term)||card.dataset.category.toLocaleLowerCase('vi').includes(term);card.hidden=!match;if(match)visible++;});emptyState.hidden=visible!==0;}
+    searchForm.addEventListener('submit',event=>{event.preventDefault();filterProducts();});searchInput.addEventListener('input',filterProducts);
+    sortSelect.addEventListener('change',()=>{const cards=[...grid.children];if(sortSelect.value==='asc')cards.sort((a,b)=>Number(a.dataset.price)-Number(b.dataset.price));else if(sortSelect.value==='desc')cards.sort((a,b)=>Number(b.dataset.price)-Number(a.dataset.price));else cards.sort((a,b)=>Number(a.dataset.originalOrder)-Number(b.dataset.originalOrder));cards.forEach(card=>grid.appendChild(card));});
+    document.querySelectorAll('.add-button').forEach(button=>button.addEventListener('click',()=>{count++;cartCount.textContent=count;toast.textContent='Đã thêm '+button.dataset.add+' vào giỏ hàng (minh họa).';toast.classList.add('show');window.setTimeout(()=>toast.classList.remove('show'),2200);}));
+    document.querySelectorAll('[data-category]').forEach(link=>link.addEventListener('click',()=>{searchInput.value=link.dataset.category;filterProducts();}));document.getElementById('cartButton').addEventListener('click',()=>{toast.textContent=count?'Bạn đã chọn '+count+' lượt thêm sản phẩm. Giỏ hàng chỉ minh họa.':'Giỏ hàng hiện chưa có sản phẩm.';toast.classList.add('show');window.setTimeout(()=>toast.classList.remove('show'),2200);});
+  </script>
+</body>
+</html>
